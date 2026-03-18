@@ -9,6 +9,9 @@ import Signup from "./SignupComponent";
 import Active from "./ActiveComponent";
 import Login from "./LoginComponent";
 import MyProfile from "./MyProfileComponent";
+import Mycart from "./MyCartComponent";
+import Myorders from "./MyordersComponent";
+
 
 
 
@@ -29,6 +32,8 @@ class Main extends Component {
                     <Route path = '/product/:id' element={<ProductDetail/>}></Route>
                     <Route path = '/login' element = {<Login/>} />
                     <Route path = '/myprofile' element = {<MyProfile/>}/>
+                    <Route path = '/mycart' element = {<Mycart/>}/>
+                    <Route path = '/myorders' element = {<Myorders/>}/>
                 </Routes>
             </div>
         );
