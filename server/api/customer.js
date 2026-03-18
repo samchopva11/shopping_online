@@ -6,12 +6,32 @@ const router = express.Router();
 const CryptoUtil = require('../utils/CryptoUtil');
 const EmailUtil = require('../utils/EmailUtil');
 const JwtUtil = require('../utils/JwtUtil');
+const OrderDAO = require('../models/OrderDAO');
 
 
 //daos
 const ProductDAO = require('../models/ProductDAO');
 const CategoryDAO = require('../models/CategoryDAO');
 const CustomerDAO = require('../models/CustomerDAO')
+
+//myorder
+
+router.get('/orders/customer/:cid', JwtUtil.checkToken, async function(req, res){
+    const _cid = req.params?.cid;
+    const orders = await OrderDAO.selectByCustID(_cid);
+    res.json(orders);
+});
+
+router.post('/checkout', JwtUtil.checkToken, async function(req, res){
+    const now = new Date().getTime();
+    const total = req.body?.total;
+    const items = req.body?.items;
+    const customer = req.body?.customer;
+    const order = {cdate: now, total: total, status: 'PENDING', customer: customer, items: items};
+    const result = await OrderDAO.insert(order);
+    res.json(result);
+});
+
 
 //customer
 

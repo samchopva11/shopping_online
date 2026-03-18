@@ -16,7 +16,7 @@ class Inform extends Component {
                     }
                 </div>
                 <div className="float-right">
-                    <Link to = ''>My Cart</Link> have <b>0</b> items
+                    <Link to = '/mycart'>My Cart</Link> have <b>{this.context.mycart.length}</b> items
                 </div>
                 <div className="float-clear"/>
             </div>
@@ -27,6 +27,7 @@ class Inform extends Component {
     lnkLogoutClick(){
         this.context.setToken('');
         this.context.setCustomer(null);
+        this.context.setMycart([]);
     }
 
 }

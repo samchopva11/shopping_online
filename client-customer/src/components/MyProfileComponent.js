@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, {Component} from "react";
 import {Navigate} from 'react-router-dom';
+import MyContext from "../contexts/MyContext";
 
 class MyProfile extends Component {
+    static contextType = MyContext;
     constructor(props){
         super(props);
         this.state = {
@@ -100,4 +102,3 @@ class MyProfile extends Component {
     }   
 }
 export default MyProfile;
-

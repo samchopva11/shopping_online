@@ -7,11 +7,18 @@ class MyProvider extends Component{
         this.state = {
             token: '',
             customer: null,
+            mycart: [],
 
             setToken: this.setToken,
-            setCustomer: this.setCustomer
+            setCustomer: this.setCustomer,
+            setMycart: this.setMycart
         }
     }
+
+    setMycart = (value) => {
+        this.setState({mycart: value});
+    }
+
     setToken = (value) => {
         this.setState({token: value});
 
