@@ -6,6 +6,7 @@ const JwtUtil = require('../utils/JwtUtil');
 const AdminDAO = require('../models/AdminDAO');
 const CategoryDAO = require('../models/CategoryDAO');
 const ProductDAO = require('../models/ProductDAO');
+const OrderDAO = require('../models/OrderDAO');
 // login
 router.post('/login', async function(req, res) {
     const username = req.body?.username;
@@ -22,6 +23,22 @@ router.post('/login', async function(req, res) {
         res.json({ success: false, message: 'Please input username and password' });
     }
 });
+
+//order
+router.get('/orders', JwtUtil.checkToken, async function(req,res){
+    const orders = await OrderDAO.selectAll();
+    res.json(orders);
+})
+router.put('/orders/status/:id', JwtUtil.checkToken, async function(req, res){
+    const _id = req.params?.id;
+    const newStatus = req.body?.status;
+    const result = await OrderDAO.update(_id, newStatus);
+    res.json(result);
+
+})
+
+
+
 
 // product
 router.get('/products', JwtUtil.checkToken, async function(req, res) {
