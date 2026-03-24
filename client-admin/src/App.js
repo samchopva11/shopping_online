@@ -8,12 +8,12 @@ import {BrowserRouter} from 'react-router-dom';
 class App extends Component {
   render() {
     return (
-      <MyProvider>
-        <Login/>
-        <BrowserRouter>
+      <BrowserRouter>
+        <MyProvider>
+          <Login/>
           <Main/>
-        </BrowserRouter>
-      </MyProvider>
+        </MyProvider>
+      </BrowserRouter>
     );
   }
 }
