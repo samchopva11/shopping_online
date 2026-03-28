@@ -47,9 +47,11 @@ class ProductDetail extends Component {
                             </tr>
                             <tr>
                                 <td></td>
-                                <input type="submit" value="ADD NEW" onClick = {(e) => this.btnAddClick(e)}></input>
-                                <input type="submit" value="UPDATE" onClick = {(e) => this.btnUpdateClick(e)}></input>
-                                <input type="submit" value="DELETE" onClick = {(e) => this.btnDeleteClick(e)}></input>
+                                <td>
+                                    <input type="submit" value="ADD NEW" onClick = {(e) => this.btnAddClick(e)}></input>
+                                    <input type="submit" value="UPDATE" onClick = {(e) => this.btnUpdateClick(e)}></input>
+                                    <input type="submit" value="DELETE" onClick = {(e) => this.btnDeleteClick(e)}></input>
+                                </td>
                             </tr>
                             <tr>
                                 <td colSpan='2'><img src={this.state.imgProduct} alt="" width= "300px" height="300px" /></td>
