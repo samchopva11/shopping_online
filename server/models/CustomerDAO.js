@@ -2,6 +2,18 @@ require('../utils/MongooseUtil');
 const Models = require('../models/Models');
 
 const CustomerDAO = {
+
+    async selectByID(_id){
+        const customer = await Models.Customer.findById(_id).exec();
+        return customer;
+    },
+
+    async selectAll(){
+        const query = {};
+        const customers = await Models.Customer.find(query).exec();
+        return customers;
+    },
+
     async selectByUsernameOrEmail(username, email){
         const query = {$or: [{username:username}, {email:email}]};
         const customer = await Models.Customer.findOne(query);
