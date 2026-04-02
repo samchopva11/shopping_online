@@ -28,8 +28,8 @@ const CustomerDAO = {
     },
     
     async insert(customer){
-        const mongoose = require('mongoose');
-        customer._id = new mongoose.Types.ObjectId();
+        // customer._id nên để Mongoose tự sinh ra nếu không cần thiết phải khởi tạo thủ công
+        // hoặc đảm bảo mongoose đã được require ở đầu file để tránh lặp lại
         const result = await Models.Customer.create(customer);
         return result;
     

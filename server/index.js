@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config(); // Tải các biến môi trường từ file .env
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -33,3 +34,4 @@ app.use('/customer', express.static(path.join(__dirname, '../client-customer/bui
 app.get('/customer/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client-customer/build', 'index.html'));
 });
+module.exports = app;
