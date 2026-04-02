@@ -55,14 +55,14 @@ class Home extends Component {
     //apis
 
     apiGetNewProducts() {
-        axios.get(process.env.REACT_APP_API_URL + '/api/customer/products/new').then((res) => {
+        axios.get('/api/customer/products/new').then((res) => {
             const result = res.data;
             this.setState({newprods: result});
         });
     }
 
     apiGetHotProducts() {
-        axios.get(process.env.REACT_APP_API_URL + '/api/customer/products/hot').then((res) => {
+        axios.get('/api/customer/products/hot').then((res) => {
             const result = res.data;
             this.setState({hotprods: result});
         });

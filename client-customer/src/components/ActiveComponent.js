@@ -56,7 +56,7 @@ class Active extends Component {
 
     apiActive(id, token){
         const body = {id: id, token: token};
-        axios.post(process.env.REACT_APP_API_URL + '/api/customer/active', body).then((res) => {
+        axios.post('/api/customer/active', body).then((res) => {
             const result = res.data;
             if(result){
                 alert(result.message);
