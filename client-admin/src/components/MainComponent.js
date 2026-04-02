@@ -7,6 +7,7 @@ import Category from './CategoryComponent';
 import Product from './ProductComponent';
 import Order from './OrderComponent';
 import Customer from "./CustomerComponent";
+import Login from "./LoginComponent";
 
 
 class Main extends Component {
@@ -27,6 +28,7 @@ class Main extends Component {
                 </div>
             )
         }
+        return (<Login />);
     }
 }
 export default Main;
