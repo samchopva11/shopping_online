@@ -1,0 +1,8 @@
+node_modules/ # Bỏ qua tất cả node_modules
+
+*.log
+build/
+.DS_Store
+
+# React specific
+.env* # Bỏ qua tất cả các file .env trong thư mục gốc và các thư mục con
