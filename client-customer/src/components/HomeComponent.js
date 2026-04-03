@@ -55,7 +55,7 @@ class Home extends Component {
     //apis
 
     apiGetNewProducts() {
-        axios.get('process.env.REACT_APP_API_URL + /api/customer/products/new').then((res) => {
+        axios.get(process.env.REACT_APP_API_URL + '/api/customer/products/new').then((res) => {
             const result = res.data;
             this.setState({newprods: result});
         });
