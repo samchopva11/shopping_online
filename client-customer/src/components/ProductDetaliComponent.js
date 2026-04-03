@@ -104,7 +104,7 @@ class ProductDetail extends Component {
 
   //apis
   apiGetProduct(id) {
-    axios.get("/api/customer/products/" + id).then((res) => {
+    axios.get("process.env.REACT_APP_API_URL + /api/customer/products/" + id).then((res) => {
       const result = res.data;
       this.setState({ product: result });
     });

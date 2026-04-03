@@ -153,7 +153,7 @@ class Customer extends Component{
 
     apiGetCustomerSendmail(id){
         const config = {headers: {'x-access-token': this.context.token}};
-        axios.get('/api/admin/customers/sendmail/' + id, config).then((res)=>{
+        axios.get('process.env.REACT_APP_API_URL + /api/admin/customers/sendmail/' + id, config).then((res)=>{
             const result = res.data;
             if(result.message);
         })
@@ -162,7 +162,7 @@ class Customer extends Component{
     apiPutCustomerDeactive(id, token){
         const body = {token: token};
         const config = {headers: {'x-access-token': this.context.token}};
-        axios.put('/api/admin/customers/deactive/' + id, body, config).then((res)=>{
+        axios.put('process.env.REACT_APP_API_URL + /api/admin/customers/deactive/' + id, body, config).then((res)=>{
             const result = res.data;
             if(result){
                 this.apiGetCustomers();
@@ -174,7 +174,7 @@ class Customer extends Component{
 
     apiGetCustomers(){
         const config = {headers: {'x-access-token': this.context.token}};
-        axios.get('/api/admin/customers', config).then((res)=>{
+        axios.get('process.env.REACT_APP_API_URL + /api/admin/customers', config).then((res)=>{
             const result = res.data;
             this.setState({customers: result});
         })
@@ -182,7 +182,7 @@ class Customer extends Component{
 
     apiGetOrdersByCustID(cid){
         const config = { headers: {'x-access-token': this.context.token}};
-        axios.get('/api/admin/orders/customer/' + cid, config).then((res)=>{
+        axios.get('process.env.REACT_APP_API_URL + /api/admin/orders/customer/' + cid, config).then((res)=>{
             const result= res.data;
             this.setState({orders:result})
 

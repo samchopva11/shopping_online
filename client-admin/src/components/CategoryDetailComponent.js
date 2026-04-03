@@ -84,7 +84,7 @@ class CategoryDetail extends Component {
     //api
     apiDeleteCategory = (id) => {
         const config = {headers: {'x-access-token': this.context.token}};
-        axios.delete('/api/admin/categories/'+id, config).then((res) => {
+        axios.delete(process.env.REACT_APP_API_URL + '/api/admin/categories/'+id, config).then((res) => {
             const result = res.data;
             if(result){
                 alert('OK BABY!');
@@ -97,7 +97,7 @@ class CategoryDetail extends Component {
 
     apiPutCategory = (id, cate) => {
         const config = {headers: {'x-access-token': this.context.token}};
-        axios.put('/api/admin/categories/'+id,cate,config).then((res) => {
+        axios.put(process.env.REACT_APP_API_URL + '/api/admin/categories/'+id,cate,config).then((res) => {
             const result = res.data;
             if(result){
                 alert('OK BABY!');
@@ -110,7 +110,7 @@ class CategoryDetail extends Component {
 
     apiPostCategory = (cate) => {
         const config = {headers: { 'x-access-token': this.context.token }};
-        axios.post('/api/admin/categories', cate, config).then((res) => {
+        axios.post(process.env.REACT_APP_API_URL + '/api/admin/categories', cate, config).then((res) => {
             const result = res.data;
             if(result){
                 alert('OK BABY!');
@@ -123,7 +123,7 @@ class CategoryDetail extends Component {
 
     apiGetCategories = () => {
         const config = {headers: { 'x-access-token': this.context.token }};
-        axios.get('/api/admin/categories', config).then((res) => {
+        axios.get('process.env.REACT_APP_API_URL + /api/admin/categories', config).then((res) => {
             const result = res.data;
             this.props.updateCategories(result.categories);
         });
