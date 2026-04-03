@@ -1,4 +1,5 @@
 require('../utils/MongooseUtil');
+const mongoose = require('mongoose');
 const Models = require('../models/Models');
 
 const CustomerDAO = {
@@ -28,8 +29,7 @@ const CustomerDAO = {
     },
     
     async insert(customer){
-        // customer._id nên để Mongoose tự sinh ra nếu không cần thiết phải khởi tạo thủ công
-        // hoặc đảm bảo mongoose đã được require ở đầu file để tránh lặp lại
+        customer._id = new mongoose.Types.ObjectId();
         const result = await Models.Customer.create(customer);
         return result;
     

@@ -134,7 +134,7 @@ class ProductDetail extends Component {
 
     apiDeleteProduct(id) {
         const config = {headers: {'x-access-token': this.context.token}};
-        axios.delete('/api/admin/products/' + id, config).then((res) => {
+        axios.delete(process.env.REACT_APP_API_URL + '/api/admin/products/' + id, config).then((res) => {
             const result = res.data;
             if(result){
                 alert('OK BABY!');
@@ -173,13 +173,13 @@ class ProductDetail extends Component {
 
     apiGetProducts(){
         const config = {headers: {'x-access-token': this.context.token}};
-        axios.get('process.env.REACT_APP_API_URL + /api/admin/products?page=' + this.props.curPage, config).then((res) => {
+        axios.get(process.env.REACT_APP_API_URL + '/api/admin/products?page=' + this.props.curPage, config).then((res) => {
             const result = res.data;
             if (result.products.length !== 0) {
                 this.props.updateProducts(result.products, result.noPages);
 
             }else {
-                axios.get('process.env.REACT_APP_API_URL + /api/admin/products?page=' +(this.props.curPage -1), config).then((res) => {
+                axios.get(process.env.REACT_APP_API_URL + '/api/admin/products?page=' +(this.props.curPage -1), config).then((res) => {
                     const result = res.data;
                     if(result.products.length !== 0){
                         this.props.updateProducts(result.products, result.noPages);

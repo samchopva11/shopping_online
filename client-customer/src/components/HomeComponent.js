@@ -57,14 +57,22 @@ class Home extends Component {
     apiGetNewProducts() {
         axios.get(process.env.REACT_APP_API_URL + '/api/customer/products/new').then((res) => {
             const result = res.data;
-            this.setState({newprods: result});
+            if (Array.isArray(result)) { // Kiểm tra xem result có phải là mảng không
+                this.setState({newprods: result});
+            } else {
+                console.error("API for new products returned non-array data or an error:", result);
+            }
         });
     }
 
     apiGetHotProducts() {
         axios.get(process.env.REACT_APP_API_URL + '/api/customer/products/hot').then((res) => {
             const result = res.data;
-            this.setState({hotprods: result});
+            if (Array.isArray(result)) { // Kiểm tra xem result có phải là mảng không
+                this.setState({hotprods: result});
+            } else {
+                console.error("API for hot products returned non-array data or an error:", result);
+            }
         });
     }
 }

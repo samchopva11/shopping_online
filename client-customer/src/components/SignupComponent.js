@@ -77,7 +77,11 @@ class Signup extends Component {
     apiSignup(account){
         axios.post(process.env.REACT_APP_API_URL + '/api/customer/signup', account).then((res) => {
             const result = res.data;
-            alert(result.message);
+            if (result && result.message) {
+                alert(result.message);
+            } else {
+                alert('Signup process completed with no message.');
+            }
         })
     }
 }
