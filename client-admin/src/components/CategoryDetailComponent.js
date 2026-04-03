@@ -123,7 +123,7 @@ class CategoryDetail extends Component {
 
     apiGetCategories = () => {
         const config = {headers: { 'x-access-token': this.context.token }};
-        axios.get('process.env.REACT_APP_API_URL + /api/admin/categories', config).then((res) => {
+        axios.get(process.env.REACT_APP_API_URL + '/api/admin/categories', config).then((res) => {
             const result = res.data;
             this.props.updateCategories(result.categories);
         });

@@ -110,7 +110,7 @@ class Order extends Component {
     //api
     apiGetOrders() {
         const config = {headers: {'x-access-token': this.context.token}};
-        axios.get('process.env.REACT_APP_API_URL + /api/admin/orders', config).then((res) => {
+        axios.get(process.env.REACT_APP_API_URL + '/api/admin/orders', config).then((res) => {
             const result = res.data;
             this.setState({orders: result});
         });
@@ -119,7 +119,7 @@ class Order extends Component {
     apiPutOrderStatus(id,status){
         const body = {status: status};
         const config = {headers: {'x-access-token': this.context.token}};
-        axios.put('process.env.REACT_APP_API_URL + /api/admin/orders/status/' + id, body, config).then((res) => {
+        axios.put(process.env.REACT_APP_API_URL + '/api/admin/orders/status/' + id, body, config).then((res) => {
             const result = res.data;
             if(result){
                 this.apiGetOrders();

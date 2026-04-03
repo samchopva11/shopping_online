@@ -62,7 +62,7 @@ class Home extends Component {
     }
 
     apiGetHotProducts() {
-        axios.get('process.env.REACT_APP_API_URL + /api/customer/products/hot').then((res) => {
+        axios.get(process.env.REACT_APP_API_URL + '/api/customer/products/hot').then((res) => {
             const result = res.data;
             this.setState({hotprods: result});
         });
